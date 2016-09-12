@@ -26,6 +26,12 @@ a.hello {
 	box-shadow:5px 5px 0px 0 #25527a;
 }
 
+a.hello:hover {
+	-webkit-transform:translate(5px,5px);
+	box-shadow:0px 0px 0px 0 #25527a;
+	background-color: #25527a;
+}
+
 a.footer {
 	color:#dfdcdc;
 	text-decoration:none;
