@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <!-- 13331233 孙中阳 -->
+<!-- Browser Safari 9.1.3 (10601.7.8) -->
 <html lang="en">
 	<head>
 		<title>TMNT - Rancid Tomatoes</title>
-		<meta charset="utf-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<meta name="keywords" content="tmnt">
 		<meta name="description" content="TMNT of Rancid Tomatoes">
+		<meta name="generator" content="Coda 2.5.7">
 		<link href="css/movie.css" type="text/css" rel="stylesheet" />
 	</head>
 
 	<body>
-
 		<div class="banner">
 			<img src="image/banner.png" alt="Rancid Tomatoes" />
 		</div>
@@ -20,6 +20,7 @@
 			<h1>TMNT (2007)</h1>
 		</div>
 
+		<!-- container包含左右两列，左边是评论，右边是简介 -->
 		<div class="container">
 			<div class="left">
 				<div class="rotten_img">
@@ -28,11 +29,14 @@
 					<span class="reviews_amount">(88 reviews total)</span>
 				</div>
 
-				<div class="rows">
+				<!-- 左边有两列评论 -->
+				<div class="cols">
+					<!-- 此div占据2%的宽度 -->
 					<div class="two_percent">
 					</div>
 
 					<div class="left_col">
+						<!-- quotes_container包含评论内容和用户信息两部分 -->
 						<div class="quotes_container">
 							<blockquote>
 								<div class="rotten_gif">
@@ -187,6 +191,7 @@
 				</div>
 			</div>
 
+			<!-- 为消除图片div和电影信息div之间的空隙，将电影信息div的margin设置为-2 -->
 			<div class="right">
 				<div class="overview_image">
 					<img src="image/generaloverview.png" alt="general overview" />
