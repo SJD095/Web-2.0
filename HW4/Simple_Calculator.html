@@ -2,58 +2,59 @@
 <!-- 13331233 孙中阳 -->
 <!-- Browser Safari 9.1.3 (10601.7.8) -->
 <html lang="en">
-	<head>
-		<title>Simple Calculator</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="keywords" content="calculator">
-		<meta name="description" content="calculator by javascript">
-		<meta name="generator" content="Coda 2.5.16 (20417)">
-		<link rel="stylesheet" type="text/css" href="css/Simple_Calculator.css">
-		<script src="js/Simple_Calculator.js"></script>
-	</head>
-	
-	<body>
-		<div id="calculator_container">
-			<h1>简单计算器</h1>
-			
-			<div id="index_container">
-				<input type="text" name="input1" value="0" readonly="true" >
-				
-				<table id="index" cellspacing="15" cellpadding="10">
-					
-					<trtdonmousedown="mDown(this)" onmouseup="mUp(this)">
-						<td >(</td>
-						<td>)</td>
-						<td>CE</td>
-						<td>=</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td>8</td>
-						<td>9</td>
-						<td>/</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>5</td>
-						<td>6</td>
-						<td>*</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>0</td>
-						<td>.</td>
-						<td>←</td>
-						<td>+</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</body>
-	
+    <head>
+        <title>Simple Calculator</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="keywords" content="calculator">
+        <meta name="description" content="calculator by javascript">
+        <meta name="generator" content="Coda 2.5.16 (20417)">
+        <link rel="stylesheet" type="text/css" href="css/Simple_Calculator.css">
+        <script src="js/Simple_Calculator.js"></script>
+    </head>
+    
+    <body>
+        <div id="calculator_container">
+            <h1>简单计算器</h1>
+        <br />
+            
+            <div id="index_container">
+                <input type="text" name="input1" value="0" readonly="true" id="out" >
+                
+                <table id="index" cellspacing="15" cellpadding="10">
+                    
+                    <tr>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">(</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">)</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">CE</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">=</td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">7</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">8</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">9</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">÷</td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">4</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">5</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">6</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">×</td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">1</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">2</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">3</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">-</td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">0</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">.</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">←</td>
+                        <td onmousedown="mDown(this)" onmouseup="mUp(this)">+</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+    
 </html>
