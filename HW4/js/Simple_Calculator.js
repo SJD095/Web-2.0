@@ -1,3 +1,9 @@
+/*
+13331233    孙中阳
+2016.10.06  szy@sunzhongyang.com
+Browser Safari 9.1.3 (10601.7.8)
+*/
+
 //一个标志位，用于记录计算是否已完成
 compute_f = false;
 
@@ -13,10 +19,10 @@ function mUp(obj)
 {
     //恢复按钮颜色
     obj.style.background="linear-gradient(to bottom, #F7EED6, #bcb6a4 90%)";
-    
+
     //获取输出框
     var input = document.getElementById("out");
-    
+
     //获取按下按钮上的文本内容
     Button_Content = obj.innerHTML
 
@@ -31,7 +37,7 @@ function mUp(obj)
         //在初始状态按下"←"或"CE"不会执行任何动作
         else if(Button_Content == "←" || Button_Content == "CE")
         {
-            
+
         }
         //按下其他按钮则会初始化表达式
         else
@@ -49,7 +55,10 @@ function mUp(obj)
             //计算结果时捕获可能出现的异常
             try
             {
-	            input.value = input.value.replace("÷", "/").replace("×", "*");
+	            while(input.value.indexOf("÷") != -1 || input.value.indexOf("×") != -1)
+	            {
+		            input.value = input.value.replace("÷", "/").replace("×", "*");
+	            }
                 input.value = eval(input.value);
                 compute_f = true;
             }
@@ -101,4 +110,3 @@ function mUp(obj)
             input.value = tmp_string;
         }
     }
-}
