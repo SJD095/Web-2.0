@@ -59,13 +59,19 @@ function mUp(obj)
 	            {
 		            input.value = input.value.replace("÷", "/").replace("×", "*");
 	            }
+                //似乎eval()不会在诸如99///3的算式报错
+                if(input.value.indexOf("//") != -1)
+                {
+                    throw "mutipale division";
+                }
                 input.value = eval(input.value);
                 compute_f = true;
             }
             catch(err)
             {
                 //出现异常则弹框告警
-                alert("Expression error: " + err.message);
+                alert("Expression error: " + err);
+                input.value = "0"
             }
         }
         //如果当前按钮内容为"←"
@@ -110,3 +116,4 @@ function mUp(obj)
             input.value = tmp_string;
         }
     }
+}
