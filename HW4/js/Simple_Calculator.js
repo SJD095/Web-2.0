@@ -55,12 +55,13 @@ function mUp(obj)
             //计算结果时捕获可能出现的异常
             try
             {
+                //如果在算式中找到乘号或者除号，则将其替换为eval()能够接受的符号，比如 / 和 *
 	            while(input.value.indexOf("÷") != -1 || input.value.indexOf("×") != -1)
 	            {
 		            input.value = input.value.replace("÷", "/").replace("×", "*");
 	            }
-                //似乎eval()不会在诸如99///3的算式报错
-                if(input.value.indexOf("//") != -1)
+                //eval()会将//以及/* */等认作注释
+                if(input.value.indexOf("//") != -1 || input.value.indexOf("/*") ！= -1)
                 {
                     throw "mutipale division";
                 }
@@ -71,6 +72,7 @@ function mUp(obj)
             {
                 //出现异常则弹框告警
                 alert("Expression error: " + err);
+                //将输入框重新置为0
                 input.value = "0"
             }
         }
@@ -96,14 +98,17 @@ function mUp(obj)
         //如果刚刚完成了一次计算，那么输入按钮内容不是数字则继续表达式，否则会重新将输出框设置为新的数字
         else if(compute_f == true)
         {
+            //输入的是数字以外的操作符
             if(isNaN(Button_Content))
             {
+                //在算式结尾追加运算符
                 var tmp_string = input.value + Button_Content;
                 input.value = tmp_string;
                 compute_f = false;
             }
             else
             {
+                //算式初始化为新的数字
                 var tmp_string = Button_Content;
                 input.value = tmp_string;
                 compute_f = false;
