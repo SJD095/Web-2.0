@@ -1,0 +1,102 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+	text-align: center;
+	font-weight: lighter;
+}
+
+h1, h2, h3 {
+	font-weight: lighter;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#introduction_div {
+	margin-left: 25%;
+	text-align: left;
+}
+
+p {
+	font-size: 14px;
+}
+
+.btn {
+	width: 45px;
+	height: 35px;
+	border-radius: 6px;
+	background-color: #F7EED6;
+}
+
+.btn2
+{
+	width: 54px;
+	height: 42px;
+	border-radius: 7px;
+	background-color: #F7EED6;
+}
+
+#button_panel td {
+	width: 60px;
+	height: 42px;
+}
+
+#button_panel {
+	border-top: black;
+	border-top-width: 2px;
+	border-top-style: solid;
+	
+	border-bottom: black;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+}
+
+#panel td {
+	width: 150px;
+}
+
+span {
+	border-color: #b7b7b7;
+	border-width: 1px;
+	border-style: solid;
+	display: block;
+}
+
+#time_panel {
+	float: right;
+	width: 60px;
+}
+
+#score_panel {
+	float: right;
+	width: 60px;
+}
+
+#game_status {
+	width: 150px;
+}
+
+button .btn, .btn2{
+	font-family: Arial;
+	font-size: 15px;
+	color: #5d4919
+}
+
+#ranking {
+	position: fixed;
+	right: 10px;
+	top: 10%;
+	text-align: left;
+}
+
+#ranking_detail {
+	font-family: Arial;
+	margin-left: 15%;
+}
+
+.no_border {
+	border: none;
+}

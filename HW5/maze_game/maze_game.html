@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 13331233    孙中阳
-2016.10.06  szy@sunzhongyang.com
+2016.10.15  szy@sunzhongyang.com
 Browser Safari 9.1.3 (10601.7.8)
 -->
 <html lang="en">
@@ -13,19 +13,18 @@ Browser Safari 9.1.3 (10601.7.8)
         <meta name="generator" content="Coda 2.5.16 (20417)">
         <link rel="stylesheet" type="text/css" href="css/maze_game.css">
         <script src="js/maze_game.js"></script>
-        
     </head>
     
     <body onload="init_pic()">
 	    <div id="maze_div">
-		    <h2>The Amazing Mouse Maze</h1>
-		    <h3>Move your mouse over the "S" to begin</h2>
-		    <h3 id="dynatic">&nbsp;</h2>
+		    <h1>The Amazing Mouse Maze</h1>
+		    <h2>Move your mouse over the "S" to begin</h2>
+		    <h2 id="dynatic">&nbsp;</h2>
 		    <canvas id="maze" width="550" height="550"></canvas>
 		    <div>
 			    <br />
 			    <div id="generate_button" onmousedown="recover()" onmouseup="init()">Generate</div>
-			    <h4>This button of this game is to generate a new random maze</h3>
+			    <h3>This button of this game is to generate a new random maze</h3>
 		    </div>
 	    </div>
     </body>
