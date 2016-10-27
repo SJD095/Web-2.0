@@ -21,10 +21,10 @@ Browser Safari 9.1.3 (10601.7.8)
 	    <table id="choice" cellpadding ="15">
 		    <tr>
 			    <td>
-				    <ul class="menu">
+				    <ul class="menu" id="menu1">
 					    <li>
 					    	<a href="#">Background</a>
-					    	<ul>
+					    	<ul id="ul1">
 						    	<li onclick="background_change('Galaxy')"><a href="#">Galaxy</a></li>
 						    	<li onclick="background_change('River')"><a href="#">River</a></li>
 						    	<li onclick="background_change('Beach')"><a href="#">Beach</a></li>
@@ -33,10 +33,10 @@ Browser Safari 9.1.3 (10601.7.8)
 				    </ul>
 			    </td>
 			    <td>
-				    <ul class="menu">
+				    <ul class="menu" id="menu2">
 					    <li>
 					    	<a href="#">Difficulty</a>
-					    	<ul>
+					    	<ul id="ul2">
 						    	<li onclick="difficult_change(3)"><a href="#">3 × 3</a></li>
 						    	<li onclick="difficult_change(4)"><a href="#">4 × 4</a></li>
 						    	<li onclick="difficult_change(5)"><a href="#">5 × 5</a></li>
@@ -49,7 +49,7 @@ Browser Safari 9.1.3 (10601.7.8)
 	    <table id="puzzle"></table>
 		<br />
 	    <button type="button" class="select_btn" onclick="start()" id="start_button">Start</button>
-	    <button type="button" class="select_btn" onclick="slove()">solve</button>
+	    <button type="button" class="select_btn" onclick="slove()" id="solve_button">solve</button>
 	    <img id="complete" src="image/galaxy_square.jpg" width="300" height="300">
     </body>
 </html>

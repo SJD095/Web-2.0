@@ -66,22 +66,22 @@ function init()
 {
 	//生成一个table
     var table = document.getElementById("puzzle");
-    
+
     //构造Puzzle初始状态
     status_array = new Array();
-    
+
     for(var i = 0; i < dimension; i++)
     {
         status_array[i] = new Array();
-        
+
         for(var j = 0; j < dimension; j++)
         {
             status_array[i][j] = i * dimension + j;
         }
     }
-        
+
     status_array[dimension - 1][dimension - 1] = "empty";
-    
+
     //初始化页面右侧的已完成图片
     var complete_pic = document.getElementById("complete")
     complete_pic.width = background_image_width * 2 / 3;
@@ -93,26 +93,26 @@ function init()
 	    //新建一行
         var tr = document.createElement("tr")
 		table.appendChild(tr);
-        
+
         for(var j = 0; j < dimension; j++)
         {
 	        //构造一个td对象
             var td = document.createElement("td");
-            
+
             //每个td里面有一个带编号的div
             var div = document.createElement("div");
-            
+
             //设置id
             div.id = (i * dimension + j).toString();
-            
+
             //构造一个新的button
             var btn = document.createElement("button");
-            
+
             //设置button的有关信息
             btn.className = "puzzle_btn";
             btn.style.width = (background_image_width / dimension).toString() + "px";
             btn.style.height = (background_image_height / dimension).toString() + "px";
-            
+
             //初始化button的背景
             if( i * dimension + j != dimension * dimension - 1)
             {
@@ -126,15 +126,15 @@ function init()
                 btn.style.backgroundColor = "transparent"
                 btn.style.boxShadow = "none";
             }
-            
+
             //为每个button设置单独的id，方便寻找
             btn.id = "btn_" + (i * dimension + j).toString();
             btn.onclick = btn_click;
-            
+
             tr.appendChild(td);
             td.appendChild(div)
             div.appendChild(btn);
-        }    
+        }
     }
 }
 
@@ -150,7 +150,7 @@ function btn_click()
     {
         id = this.parentNode.id;
     }
-    
+
     //如果点击的button旁边有空格，则交换button和空格的位置
     if(Math.floor(id / dimension - 1) >= 0)
     {
@@ -208,12 +208,12 @@ function btn_click()
             stack.push(id);
         }
     }
-    
+
     //如果当前不在生成过程中或者解决过程中，在游戏状态中
     if(!onStart && !onSolve && inGame)
     {
 	    var judge = true;
-	    
+
 	    //如果发现当前状态和目标结果相同
 	    for(var i = 0; i < dimension * dimension - 1; i++)
 	    {
@@ -223,7 +223,7 @@ function btn_click()
 			    break;
 		    }
 	    }
-	    
+
 	    if(judge)
 	    {
 		    //先恢复到初始状态，然后发出通知信息
@@ -241,7 +241,7 @@ function move(btn_id)
     var empty_td = empty_btn.parentNode;
     var current_btn = document.getElementById(btn_id)
     var current_td = current_btn.parentNode;
-    
+
     //交换两个button的位置
     empty_btn.parentNode.removeChild(empty_btn);
     current_td.removeChild(current_btn)
@@ -253,9 +253,9 @@ function move(btn_id)
 function start()
 {
 	onStart = true;
-	
+
 	var s = document.getElementById("start_button");
-	
+
 	//如果正在游戏，则恢复显示为Start，同时重新初始化
 	if(inGame)
 	{
@@ -283,7 +283,7 @@ function random_move()
 	    //生成状态结束
 	    onStart = false;
         random_id = -1;
-        
+
         //停止随机生成
         clearInterval(t);
     }
@@ -293,7 +293,7 @@ function random_move()
         while(true)
         {
             random = Math.floor(Math.random() * 10) % 4;
-            
+
             //0 1 2 3 分别代表上下左右
             switch(random)
             {
@@ -322,7 +322,7 @@ function random_move()
                 break;
             }
         }
-        
+
         //根据选中的id出发点击动作
         var d = document.getElementById(random_id).childNodes[0]
         d.onclick();
@@ -334,7 +334,7 @@ function slove()
 {
 	onSolve = true;
 	back_count = stack.length - 1
-	
+
 	//开始恢复
 	t2 = setInterval("back_solve(back_count)", 200);
 }
@@ -353,14 +353,14 @@ function back_solve(i)
 	{
 		//终止恢复
 		clearInterval(t2);
-		
+
 		//手动完成最后一步
 		var d = document.getElementById(dimension * dimension - 1).childNodes[0]
 		d.onclick();
 		stack = new Array();
 		onSolve = false;
 		inGame = false;
-		
+
 		//更新Start按钮的状态
 		var s = document.getElementById("start_button");
 		s.innerHTML = "Start"
@@ -372,7 +372,7 @@ function background_change(background)
 {
 	//获取所有button
 	var buttons = document.getElementsByTagName("button");
-	
+
 	//根据传入的数据决定更换的背景
 	switch(background)
 	{
@@ -422,25 +422,25 @@ function change_init(bg_n)
 {
 	bg_name = bg_n;
 	background_image = new Image();
-	
+
 	//生成新的背景地址
 	background_image.src = "image/" + bg_name + "_square.jpg";
 	background_image.onload = function() {
 	    background_image_width = background_image.width;
 	    background_image_height = background_image.height;
 	}
-	
+
 	//按照id重新初始化每个button的背景
 	for(var i = 0; i < dimension * dimension - 1; i++)
 	{
 		var b = document.getElementById("btn_" + i);
 		b.style.backgroundImage = "url('image/" + bg_name + "_square.jpg')";
 	}
-	
+
 	//设置页面背景
 	var body = document.body;
 	body.style.background = "url('image/" + bg_name + "_blur.jpg')";
-	
+
 	//设置完成图片的背景
 	var complete_img = document.getElementById("complete");
 	complete_img.src = "image/" + bg_name + "_square.jpg";
@@ -449,37 +449,38 @@ function change_init(bg_n)
 //更改难度，同时重新初始化
 function difficult_change(new_dimension)
 {
-	//终止生成或者恢复
-	clearInterval(t);
-	clearInterval(t2);
-	stack = new Array();
-	
-	//退出游戏状态
-	inGame = false;
-	//恢复步数为零
-	back_count = 0;
-	
-	//更改Start按钮内容
-	var s = document.getElementById("start_button");
-	s.innerHTML = "Start"
-	
 	//如果维数不同或者在强制状态，则更新到新难度
 	if(new_dimension != dimension || qiangzhi)
 	{
+        //终止生成或者恢复
+        clearInterval(t);
+        clearInterval(t2);
+
+        stack = new Array();
+
+        //退出游戏状态
+        inGame = false;
+        //恢复步数为零
+        back_count = 0;
+
+        //更改Start按钮内容
+        var s = document.getElementById("start_button");
+        s.innerHTML = "Start"
+
 		dimension = new_dimension;
-		
+
 		random_id = -1;
-		
+
 		empty_pos = dimension * dimension - 1;
-		
+
 		stack = new Array();
-		
+
 		//获取Puzzle所在的table
 		var table = document.getElementById("puzzle");
-		
+
 		//清空当前Puzzle
 		var buttons = table.childNodes;
-		
+
 		while(buttons.length != 0)
 		{
 			for(var i = 0; i < buttons.length; i++)
@@ -488,40 +489,40 @@ function difficult_change(new_dimension)
 			}
 			buttons = table.childNodes;
 		}
-		
+
 		//重新按照新维度更新状态
 	    status_array = new Array();
-	    
+
 	    for(var i = 0; i < dimension; i++)
 	    {
 	        status_array[i] = new Array();
-	        
+
 	        for(var j = 0; j < dimension; j++)
 	        {
 	            status_array[i][j] = i * dimension + j;
 	        }
 	    }
-	    
+
 	    status_array[dimension - 1][dimension - 1] = "empty";
-	
+
 	    //重新按照新维度初始化每个button
 	    for(var i = 0; i < dimension; i++)
 	    {
 	        var tr = document.createElement("tr")
 			table.appendChild(tr);
-	        
+
 	        for(var j = 0; j < dimension; j++)
 	        {
 	            var td = document.createElement("td");
 	            var div = document.createElement("div");
-	            
+
 	            div.id = (i * dimension + j).toString();
-	            
+
 	            var btn = document.createElement("button");
 	            btn.className = "puzzle_btn";
 	            btn.style.width = (background_image_width / dimension).toString() + "px";
 	            btn.style.height = (background_image_height / dimension).toString() + "px";
-	            
+
 	            if( i * dimension + j != dimension * dimension - 1)
 	            {
 		            btn.style.backgroundImage = "url('image/" + bg_name + "_square.jpg')";
@@ -533,16 +534,16 @@ function difficult_change(new_dimension)
 	                btn.style.backgroundColor = "transparent"
 	                btn.style.boxShadow = "none";
 	            }
-	            
+
 	            btn.id = "btn_" + (i * dimension + j).toString();
 	            btn.onclick = btn_click;
-	            
+
 	            tr.appendChild(td);
 	            td.appendChild(div)
 	            div.appendChild(btn);
-	        }    
+	        }
 	    }
-	    
+
 	    //重新根据背景初始化每个button的阴影
 	    var buttons = document.getElementsByTagName("button");
 	    switch(bg_name)
