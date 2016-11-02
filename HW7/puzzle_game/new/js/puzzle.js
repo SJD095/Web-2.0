@@ -1,6 +1,6 @@
 /*
 13331233    孙中阳
-2016.10.15  szy@sunzhongyang.com
+2016.11.2  szy@sunzhongyang.com
 Browser Safari 9.1.3 (10601.7.8)
 */
 
@@ -93,15 +93,14 @@ function clear()
     //重新按照新维度更新状态
     status_array = new Array();
 
-    for(var i = 0; i < dimension; i++)
+    _.times(dimension, function(i)
     {
         status_array[i] = new Array();
-
-        for(var j = 0; j < dimension; j++)
+        _.times(dimension, function(j)
         {
             status_array[i][j] = i * dimension + j;
-        }
-    }
+        });
+    });
 
     status_array[dimension - 1][dimension - 1] = "empty";
 }
@@ -109,13 +108,13 @@ function clear()
 function build_puzzle()
 {
     //初始化Puzzle的每个格子
-    for(var i = 0; i < dimension; i++)
+    _.times(dimension, function(i)
     {
         //新建一行
         var tr = document.createElement("tr")
         $("#puzzle").append(tr);
 
-        for(var j = 0; j < dimension; j++)
+        _.times(dimension, function(j)
         {
             //构造一个td对象
             var td = document.createElement("td");
@@ -143,8 +142,8 @@ function build_puzzle()
             }
 
             $(tr).append($(td).append($(div).append($(btn))));
-        }
-    }
+        });
+    });
 
     change_init(bg_name);
 }
@@ -232,7 +231,7 @@ function btn_click()
     }
 }
 
-//移动某个button
+//移动某个button，这里由于要不断获取节点并互相删除以及添加，采用jquery会产生非常长的一个语句，可读性并不好，故没有采用jquery的实现
 function move(btn_id)
 {
     //首先获取到当前的空格button和要交换的button
@@ -243,9 +242,9 @@ function move(btn_id)
 
     //交换两个button的位置
     empty_btn.parentNode.removeChild(empty_btn);
-    current_td.removeChild(current_btn)
-    empty_td.appendChild(current_btn)
-    current_td.appendChild(empty_btn)
+    current_td.removeChild(current_btn);
+    empty_td.appendChild(current_btn);
+    current_td.appendChild(empty_btn);
 }
 
 //点击开始随机生成Puzzle，并开始游戏
@@ -289,7 +288,7 @@ function random_move()
 	    //随机选择一个新方向
         while(true)
         {
-            random = Math.floor(Math.random() * 10) % 4;
+            random = _.random(3);
 
             //0 1 2 3 分别代表上下左右
             switch(random)
@@ -329,7 +328,7 @@ function random_move()
 function slove()
 {
 	onSolve = true;
-	back_count = stack.length - 1
+	back_count = stack.length - 1;
 
 	//开始恢复
 	t2 = setInterval("back_solve(back_count)", 200);
@@ -401,16 +400,16 @@ function change_init(bg_n)
 	}
 
 	//按照id重新初始化每个button的背景
-	for(var i = 0; i < dimension * dimension - 1; i++)
+	_.times(dimension * dimension - 1, function(i)
 	{
-        $("#" + "btn_" + i).css("backgroundImage", "url('image/" + bg_name + "_square.jpg')")
-	}
+        $("#" + "btn_" + i).css("backgroundImage", "url('image/" + bg_name + "_square.jpg')");
+	});
 
 	//设置页面背景
-    $("body").css("background", "url('image/" + bg_name + "_blur.jpg')")
+    $("body").css("background", "url('image/" + bg_name + "_blur.jpg')");
 
 	//设置完成图片的背景
-    $("#complete").attr("src", "image/" + bg_name + "_square.jpg")
+    $("#complete").attr("src", "image/" + bg_name + "_square.jpg");
 }
 
 //更改难度，同时重新初始化
