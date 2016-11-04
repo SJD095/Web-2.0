@@ -1,0 +1,48 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    text-align: center;
+}
+
+#container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    color: white;
+    text-align: left;
+    background-color: #021c83;
+}
+
+.even {
+    background: #e1e1e1;
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    padding: 3px;
+    border: 1px solid #cecece;
+}
+
+.up {
+    background: url("../image/ascend.png") no-repeat right #949FE3;
+}
+
+.down {
+    background: url("../image/descend.png") no-repeat right #949FE3;
+}
+
+#staff th {
+    padding-right: 25px;
+}
