@@ -239,10 +239,10 @@ window.onload = function()
 		phone_message.innerHTML = "";
 		email_message.innerHTML = "";
 
-		name_input.placeholder = "USERNAME";
-		studentid_input.placeholder = "STUDENTID";
-		phone_input.placeholder = "PHONE";
-		email_input.placeholder = "EMAIL";
+		name_input.value = "";
+		studentid_input.value = "";
+		phone_input.value = "";
+		email_input.value = "";
 	}
 }
 
@@ -262,13 +262,13 @@ function valid_name(name)
 //判断ID是否合法
 function valid_studentid(studentid)
 {
-	return /^[1-9]\d{7}$/.test(studentid)
+	return /^[1-9]\d{7}$/.test(studentid);
 }
 
 //判断电话号码是否合法
 function valid_phone(phone)
 {
-	return /^[1-9]\d{10}$/.test(phone)
+	return /^[1-9]\d{10}$/.test(phone);
 }
 
 //判断邮箱是否合法

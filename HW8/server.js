@@ -54,7 +54,7 @@ var http_server = http.createServer(function(req, res)
 	    {
 	        post = querystring.parse(post);
 
-	        check(post["k"], post["c"], res)
+	        check(post["k"], post["c"], res);
 	    });
 	}
 	else if(req.url == "/submit")
@@ -69,12 +69,12 @@ var http_server = http.createServer(function(req, res)
 	    req.on('end', function()
 	    {
 	        post = querystring.parse(post);
-	        console.log(post)
-	        var obj = {}
+	        console.log(post);
+	        var obj = {};
 	        obj["name"] = post["username"];
-	        obj["studentid"] = post["id"]
-	        obj["phone"] = post["phone"]
-	        obj["email"] = post["email"]
+	        obj["studentid"] = post["id"];
+	        obj["phone"] = post["phone"];
+	        obj["email"] = post["email"];
 
 	        user_array.push(obj);
 
