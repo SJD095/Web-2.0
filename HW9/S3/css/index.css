@@ -8,6 +8,10 @@ ul {
     list-style-type: none;
 }
 
+li {
+	font-family: sans-serif;
+}
+
 #bottom-positioner {
     position: absolute;
     left: 50%;
@@ -70,16 +74,25 @@ ul {
     background-size: 25px;
 }
 
-.mask {
-    background-image: url("../assets/images/nomask.png");
+.A {
+	text-align: center;
+	font-size: 22px;
+	color: #00b670;
+    background-color: rgba(48, 63, 159, 1);
 }
 
-.history {
-    background-image: url("../assets/images/history.png");
+.B {
+	text-align: center;
+	font-size: 22px;
+	color: #00b670;
+    background-color: rgba(48, 63, 159, 1);
 }
 
-.message {
-    background-image: url("../assets/images/message.png");
+.C {
+	text-align: center;
+	font-size: 22px;
+	color: #00b670;
+    background-color: rgba(48, 63, 159, 1);
 }
 
 .unread {
@@ -94,17 +107,23 @@ ul {
     font-weight: bold;
     font-size: 12px;
     color: white;
+    opacity: 0;
 }
 
-.setting {
-    background-image: url("../assets/images/setting.png");
+.D {text-align: center;
+	font-size: 22px;
+	color: #00b670;
+    background-color: rgba(48, 63, 159, 1);
 }
 
-.sign {
-    background-image: url("../assets/images/signin.png");
+.E {
+	text-align: center;
+	font-size: 22px;
+	color: #00b670;
+    background-color: rgba(48, 63, 159, 1);
 }
 
-#button:hover .mask {
+#button:hover .A {
     -webkit-transform: translate(-54px, -36px);
     -moz-transform: translate(-54px, -36px);
     -ms-transform: translate(-54px, -36px);
@@ -113,7 +132,7 @@ ul {
     opacity: 1;
 }
 
-#button:hover .history {
+#button:hover .B {
     -webkit-transform: translate(-68px, 0px);
     -moz-transform: translate(-68px, 0px);
     -ms-transform: translate(-68px, 0px);
@@ -122,7 +141,7 @@ ul {
     opacity: 1;
 }
 
-#button:hover .message {
+#button:hover .C {
     -webkit-transform: translate(-54px, 35px);
     -moz-transform: translate(-54px, 35px);
     -ms-transform: translate(-54px, 35px);
@@ -131,7 +150,7 @@ ul {
     opacity: 1;
 }
 
-#button:hover .setting {
+#button:hover .D {
     -webkit-transform: translate(-27px, 57px);
     -moz-transform: translate(-27px, 57px);
     -ms-transform: translate(-27px, 57px);
@@ -140,7 +159,7 @@ ul {
     opacity: 1;
 }
 
-#button:hover .sign {
+#button:hover .E {
     -webkit-transform: translate(17px, 55px);
     -moz-transform: translate(17px, 55px);
     -ms-transform: translate(17px, 55px);
@@ -163,6 +182,10 @@ ul {
     -o-transition: all 0.3s ease-in-out 0.3s;
     transition: all 0.3s ease-in-out 0.3s;
     opacity: 0;
+    text-align: center;
+	font-size: 43px;
+	color: #00b670;
+	font-family: sans-serif;
 }
 
 #control-ring-container {
@@ -180,67 +203,4 @@ ul {
     width: 120px;
     height: 120px;
     opacity: 1;
-}
-
-.info .page {
-    position: relative;
-}
-
-.info .user {
-    top: 8px;
-    left: 35px;
-}
-
-.info .user span {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 15px;
-    color: white;
-}
-
-.info .comment {
-    top: 15px;
-    left: 28px;
-}
-
-.info .comment span {
-    position: absolute;
-    top: -8px;
-    left: 32px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 28px;
-    color: white;
-}
-
-.info .mine {
-    position: relative;
-}
-
-.info .mine span {
-    position: absolute;
-    width: 23px;
-    height: 23px;
-    text-align: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 17px;
-    color: #12e699;
-}
-
-.info .posted {
-    top: 20px;
-    left: 15px;
-}
-
-.info .like {
-    top: -6px;
-    left: 65px;
 }
